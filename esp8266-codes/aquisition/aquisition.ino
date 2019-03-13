@@ -24,7 +24,7 @@ void setup() {
 void loop() {
   t = millis();
   val = 127+127*sin(2*pi*(freq/fs)*t);
-  ledcWrite(outPin, val);
+  dacWrite(outPin, val);
   measure = analogRead(inPin)* 3.3/4096;
   current = measure/ResistorShunt;
   VPele = val-measure;
