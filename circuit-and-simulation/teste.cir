@@ -1,0 +1,28 @@
+**********************
+
+.INCLUDE ad8226.cir
+Xamp   2  4  3  1  7  6  5  8 AD8226
+
+VDD 8 0 3.3
+
+Vsneg 7 0 0
+
+Vbias 6 0 1
+
+VIN 1 0 1.5
+
+rg 3 4 499
+
+*Conectando
+Vconect 2 1 1m
+
+.options gshunt = 1e-12
+.options gmin=1e-10
+.options abstol=1e-10
+.options reltol=0.003
+.options cshunt=1e-15
+
+.tran 1n 0.05m 0 0.1n
+
+.probe TRAN V(5) V(6)
+.end

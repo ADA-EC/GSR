@@ -1,0 +1,56 @@
+**********************
+
+.INCLUDE ad8226.cir
+Xamp   2  4  3  1  7  6  5  8 AD8226
+
+
+*Pele
+Rskin 12 136 1k
+r2 136 10 2k
+c1 136 10 22n
+
+*r10 10 12 2k
+
+r5 5 0 1k
+
+Rcm1 1 6 10Meg
+Rcm2 2 6 10Meg
+
+ciso4 2 9 0.47n
+ciso3 1 11 0.47n
+ciso2 13 6 0.47n
+ciso1 14 15 0.47n
+
+rac1 12 14 220
+rac2 10 13 220
+rac3 11 12 220
+rac4 9 10 220
+
+rlimit 15 16 1k
+
+VDD 8 0 3.3
+
+Vsneg 7 0 0
+
+Vbias 6 0 1
+
+VIN 16 0 SIN(1.5 1.5 5000 0 0)
+
+cnovo 5 30 10n
+
+res 30 0 1Meg
+
+rg 3 4 49.9k
+
+.options gshunt = 1e-12
+.options gmin=1e-10
+.options abstol=1e-10
+.options reltol=0.003
+.options cshunt=1e-15
+*Rfake 14 0 10G
+
+.tran 1u 2m 0 0.1u
+
+.probe TRAN I(ciso2) V(5) V(16) V(1) V(2) V(6) I(Rskin) I(ciso4) V(30)
+*.step param Rskin 1k 11k 2k
+.end
