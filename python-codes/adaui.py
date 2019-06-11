@@ -5,7 +5,7 @@ from tkintertable import TableCanvas, TableModel
 
 #Matplotlib libraries
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg#, NavigationToolbar2TkAgg
 import matplotlib.animation as animation
 
 #Other libraries
